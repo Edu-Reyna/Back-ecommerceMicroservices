@@ -18,4 +18,9 @@ public class UserController {
     public boolean getConfirmIfExist(@PathVariable Long userId){
         return userService.existsById(userId);
     }
+
+    @GetMapping("/name/{userId}")
+    public String getUsernameById(@PathVariable Long userId){
+        return userService.getUsernameById(userId);
+    }
 }

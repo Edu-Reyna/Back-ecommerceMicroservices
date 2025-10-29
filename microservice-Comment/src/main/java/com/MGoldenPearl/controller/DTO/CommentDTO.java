@@ -16,13 +16,13 @@ public class CommentDTO {
     private String createdDate;
 
 
-    public static CommentDTO fromEntity(CommentEntity commentEntity) {
-        return CommentDTO.builder()
-                .id(commentEntity.getId())
-                .comment(commentEntity.getComment())
-                .userId(commentEntity.getUserId())
-                .productId(commentEntity.getProductId())
-                .rating(commentEntity.getRating())
+    public static CommentEntity toEntity(CommentDTO commentDTO) {
+        return CommentEntity.builder()
+                .id(commentDTO.getId())
+                .comment(commentDTO.getComment())
+                .userId(commentDTO.getUserId())
+                .productId(commentDTO.getProductId())
+                .rating(commentDTO.getRating())
                 .build();
     }
 
