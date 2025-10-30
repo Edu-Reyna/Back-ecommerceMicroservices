@@ -49,5 +49,10 @@ public class ProductController {
 
     }
 
+    @GetMapping("/exists/{productId}")
+    public boolean validateProductIfExist(@PathVariable Long productId){
+        return productService.ValidateExist(productId);
+    }
+
 
 }

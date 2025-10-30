@@ -14,4 +14,6 @@ public interface IProductService {
     List<ProductDTO> findAllProductByCategory(Long id);
 
     List<ProductDTO> findAllProductsBy(EntryOrderDTO entryOrderDTO);
+
+    boolean ValidateExist(Long productId);
 }

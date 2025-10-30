@@ -1,5 +1,6 @@
 package com.MGoldenPearl.services.implementations;
 
+import com.MGoldenPearl.client.IProductClient;
 import com.MGoldenPearl.client.IUserClient;
 import com.MGoldenPearl.controller.DTO.CommentDTO;
 import com.MGoldenPearl.controller.DTO.ResponseCommentDTO;
@@ -19,6 +20,7 @@ public class CommentServiceImpl implements ICommentService {
 
     private final ICommentRepository commentRepository;
     private final IUserClient userClient;
+    private final IProductClient productClient;
 
     @Override
     public List<ResponseCommentDTO> getCommentsByProductId(Long productId) {
@@ -36,6 +38,10 @@ public class CommentServiceImpl implements ICommentService {
 
     @Override
     public void addComment(CommentDTO commentDTO) {
+        boolean validate = productClient.validateProductIfExist(commentDTO.getProductId());
+
+        if(!validate) throw new IllegalArgumentException("The product doesn't exists");
+
         CommentEntity comment = CommentDTO.toEntity(commentDTO);
         commentRepository.insert(comment);
     }

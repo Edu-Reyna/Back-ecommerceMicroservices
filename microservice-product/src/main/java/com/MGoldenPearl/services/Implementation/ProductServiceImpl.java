@@ -81,4 +81,10 @@ public class ProductServiceImpl implements IProductService {
 
         return productDTOS;
     }
+
+    @Override
+    public boolean ValidateExist(Long productId) {
+
+        return productRepository.existsById(productId);
+    }
 }

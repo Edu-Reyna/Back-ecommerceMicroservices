@@ -4,6 +4,8 @@ import lombok.Builder;
 import lombok.Data;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -26,5 +28,8 @@ public class CommentEntity {
 
     @CreatedDate
     private LocalDateTime createdDate;
+
+    @LastModifiedDate
+    private LocalDateTime updatedAt;
 
 }
