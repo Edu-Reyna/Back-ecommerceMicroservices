@@ -1,0 +1,27 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: microservice-gateway
+  main:
+    web-application-type: reactive
+
+  cloud:
+    gateway:
+      server:
+        webflux:
+          discovery:
+            locator:
+              enabled: true
+
+eureka:
+  client:
+    register-with-eureka: false
+
+microservices:
+  product-microservcice-url: ${PRODUCT-MICROSERVICE-URL:http://localhost:8050}
+  user-microservcice-url: ${USER-MICROSERVICE-URL:http://localhost:8090}
+  order-microservcice-url: ${ORDER-MICROSERVICE-URL:http://localhost:9090}
+  comment-microservcice-url: ${COMMENT-MICROSERVICE-URL:http://localhost:8040}
+

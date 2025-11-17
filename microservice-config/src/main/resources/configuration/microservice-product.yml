@@ -1,0 +1,23 @@
+server:
+  port: 8050
+
+spring:
+  application:
+    name: microservice-product
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/ProductGoldenPearl?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC
+    username: ED_ADMIN
+    password: 4686
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka

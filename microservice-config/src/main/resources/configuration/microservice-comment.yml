@@ -1,0 +1,17 @@
+server:
+  port: 8040
+
+spring:
+  application:
+    name: microservice-comment
+  data:
+    mongodb:
+      uri: mongodb://admin:password@localhost:27017/commentGoldenPeral?authSource=admin
+      auto-index-creation: true
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
